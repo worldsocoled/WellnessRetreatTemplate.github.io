@@ -1,0 +1,469 @@
+/* styles.css */
+:root {
+    --sage: #87BCA2;
+    --clay: #D97E4A;
+    --mist: #F0F3F5;
+    --deep-forest: #2B4141;
+    --dusk: #6E8898;
+    --section-padding: 5rem 1.5rem;
+    --skew-angle: -5deg;
+    --curve: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+body {
+    font-family: 'Raleway', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--deep-forest);
+    background: var(--mist);
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.8rem; }
+
+/* Navigation Styles */
+.serenity-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(240, 243, 245, 0.96);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(43, 65, 65, 0.05);
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--deep-forest);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-menu a {
+    color: var(--dusk);
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s var(--curve);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--clay);
+    transition: width 0.4s var(--curve);
+}
+
+.nav-menu a:hover {
+    color: var(--deep-forest);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: var(--sage);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    transition: transform 0.3s var(--curve);
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+}
+
+/* Geometric Hero Section */
+.zen-hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    padding-top: 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.zen-hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -30%;
+    width: 70%;
+    height: 140%;
+    background: 
+        linear-gradient(45deg, var(--sage) 0%, transparent 50%),
+        repeating-linear-gradient(-45deg, 
+            var(--mist) 0px, 
+            var(--mist) 20px, 
+            transparent 20px, 
+            transparent 40px
+        );
+    transform: rotate(15deg);
+    z-index: -1;
+}
+
+.hero-content {
+    padding: 4rem;
+    position: relative;
+}
+
+.hero-title {
+    color: var(--deep-forest);
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--dusk);
+    max-width: 28ch;
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.hero-cta {
+    padding: 1.2rem 2.4rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s var(--curve);
+}
+
+.hero-cta.primary {
+    background: var(--clay);
+    color: white;
+    box-shadow: 0 8px 24px rgba(217, 126, 74, 0.3);
+}
+
+.hero-cta.secondary {
+    border: 2px solid var(--sage);
+    color: var(--deep-forest);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Wellness Programs Grid */
+.programs-section {
+    padding: var(--section-padding);
+    background: white;
+}
+
+.programs-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.program-card {
+    background: var(--mist);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    transition: transform 0.4s var(--curve);
+}
+
+.program-card:hover {
+    transform: translateY(-8px);
+}
+
+.program-icon {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.program-info {
+    background: none;
+    border: 2px solid var(--sage);
+    color: var(--deep-forest);
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s var(--curve);
+}
+
+/* Asymmetrical Philosophy Section */
+.philosophy-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+    position: relative;
+}
+
+.philosophy-content {
+    padding: 6rem 4rem;
+    background: var(--deep-forest);
+    color: var(--mist);
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+}
+
+.philosophy-visual {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    width: 50%;
+    height: 80%;
+    background: 
+        url('path-to-wellness-image.jpg') center/cover,
+        linear-gradient(45deg, rgba(135, 188, 162, 0.3) 0%, transparent 100%);
+    border-radius: 2rem;
+    box-shadow: 16px 16px 40px rgba(43, 65, 65, 0.1);
+}
+
+/* Booking Widget */
+.booking-widget {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem;
+    background: white;
+    border-radius: 2rem;
+    margin: 4rem auto;
+    max-width: 1280px;
+}
+
+.booking-form {
+    padding: 2rem;
+}
+
+/* Curved Footer */
+.lotus-footer {
+    background: var(--deep-forest);
+    color: var(--mist);
+    padding: 6rem 2rem 2rem;
+    margin-top: 6rem;
+    border-radius: 3rem 3rem 0 0;
+    clip-path: ellipse(130% 100% at 50% 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .zen-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .philosophy-section {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-content {
+        clip-path: none;
+    }
+
+    .philosophy-visual {
+        position: relative;
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: white;
+        width: 80%;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px rgba(43, 65, 65, 0.1);
+        transition: right 0.4s var(--curve);
+    }
+
+    .nav-menu.active {
+        right: 2rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .hamburger-bar {
+        width: 30px;
+        height: 2px;
+        background: var(--deep-forest);
+        transition: all 0.3s var(--curve);
+    }
+
+    .menu-toggle.active .hamburger-bar:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .hamburger-bar:last-child {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .booking-widget {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Add to styles.css */
+/* Video Modal */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(43, 65, 65, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s var(--curve);
+    z-index: 2000;
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    background: var(--mist);
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: transform 0.3s var(--curve);
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+}
+
+/* Calendar Styles */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.calendar-day {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+    background: var(--mist);
+    cursor: pointer;
+    transition: all 0.3s var(--curve);
+}
+
+.calendar-day.available:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(135, 188, 162, 0.2);
+}
+
+.calendar-day.selected {
+    background: var(--sage);
+    color: white;
+}
+
+.availability-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--clay);
+    border-radius: 50%;
+    margin: 0.5rem auto;
+}
+
+/* Form Messages */
+.form-message {
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-message.success {
+    background: rgba(135, 188, 162, 0.2);
+    color: var(--deep-forest);
+}
+
+.form-message.error {
+    background: rgba(217, 126, 74, 0.15);
+    color: var(--clay);
+}
+
+/* Program Details Expansion */
+.program-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--curve);
+}
